@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <!--
+        Love you Ella!!
+           xxxxxxx
+             xxx
+              P
+    -->
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F9F9F9;
+            color: #333333;
+            font-size: 18px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #FDC029;
+            border: none;
+            color: #333333;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #E0A820;
+        }
+
+        /* Page-specific styles */
+        .page-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .page-2 {
+            background-color: #F9A03F;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .page-3 {
+            background-color: #F3CB5C;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .page-4 {
+            background-color: #FDC029;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .page-4 .pop-up {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .page-4 .pop-up button {
+            margin-top: 20px;
+        }
+
+        /* Audio player styles */
+        .audio-player {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .audio-player audio {
+            width: 300px;
+            margin-right: 20px;
+        }
+
+        .audio-player button {
+            margin-left: 20px;
+        }
+
+        /* Drawing area styles */
+        .drawing-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .drawing-area canvas {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #333333;
+        }
+    </style>
+
+    <title>Experiment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        var currentPage = 1;
+
+        function nextPage() {
+            if (currentPage === 1) {
+                $("#page1").remove();
+                $("body").append(`
+					<div id="page2">
+					    <p>What does this way of speaking tell us about this person?</p>
+						<ul>
+                            <li>What do they look like? </li>
+                            <li>What clothes might they wear?</li>
+                            <li>Where might they live? </li>
+                            <li>What might their house look like?</li>
+                            <li>What could they do as a job?</li>
+                            <li>Do I know anyone who talks like this?</li>
+						</ul>
+						<img src="person.png" width="50%" height="50%">
+						<br>
+						 <audio controls>
+						 <source src="audio.mp3" type="audio/mpeg">
+						 Your browser does not support the audio element.
+						 </audio>
+<!--						<button onclick="playAudio()">Play Audio</button>-->
+						<button onclick="showPopup()">I'm done listening!</button>
+						<p>Take 5 minutes to do this, you can write down any ideas if you want to, and feel free to listen to the audio clip as many times as you like.</p>
+					</div>
+				`);
+                currentPage = 2;
+            } else if (currentPage === 2) {
+                $("#page2").remove();
+                $("body").append(`
+                    <img src="drawing.png" width="50%" height="50%">
+					<div id="page3">
+						<p>Once you've thought about these things, use your imagination to draw a person and their surroundings that you think could match the way this person speaks.</p>
+						<p>Try not to focus too much on what was said in the clip. Focus instead on the way the person is speaking.</p>
+					</div>
+				`);
+                currentPage = 3;
+            }
+        }
+
+        // function playAudio() {
+        //     // code to play audio clip
+        //     console.log("Audio played!");
+        // }
+
+        function showPopup() {
+            var result = confirm("Are you sure you're done listening and want to continue?");
+            if (result) {
+                nextPage();
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="page1">
+    <p>You are going to hear a clip of someone talking. Based on how they talk, I'd like you to imagine what this person may be like.</p>
+    <p>For example:</p>
+    <ul>
+        <li>What do they look like?</li>
+        <li>What clothes might they wear?</li>
+        <li>Where might they live?</li>
+        <li>What might their house look like?</li>
+        <li>What could they do as a job?</li>
+    </ul>
+    <p>I'd also like you to think, <em>"Do I know anyone who talks like this?"</em></p>
+    <p>Take 5 minutes to do this, you can write down any ideas if you want to, and feel free to listen to the audio clip as many times as you like.</p>
+    <button onclick="nextPage()">Next!</button>
+</div>
+</body>
+</html>
