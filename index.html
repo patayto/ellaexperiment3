@@ -144,27 +144,20 @@
                             <li>What could they do as a job?</li>
                             <li>Do I know anyone who talks like this?</li>
 						</ul>
-						<img src="person.png" width="50%" height="50%">
+						<img src="person.png" width="25%" height="25%">
 						<br>
 						 <audio controls>
 						 <source src="audio.mp3" type="audio/mpeg">
 						 Your browser does not support the audio element.
 						 </audio>
-<!--						<button onclick="playAudio()">Play Audio</button>-->
+						 <br>
+						 <img src="drawing.png" width="25%" height="25%">
+
 						<p>Once you've thought about these things, use your imagination to draw a person and their surroundings that you think could match the way this person speaks.</p>
 						<p>Try not to focus too much on what was said in the clip. Focus instead on the way the person is speaking.</p>
 					</div>
 				`);
                 currentPage = 2;
-            } else if (currentPage === 2) {
-                $("#page2").remove();
-                $("body").append(`
-                    <img src="drawing.png" width="50%" height="50%">
-					<div id="page3">
-						
-					</div>
-				`);
-                currentPage = 3;
             }
         }
     </script>
