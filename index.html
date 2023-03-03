@@ -151,8 +151,8 @@
 						 Your browser does not support the audio element.
 						 </audio>
 <!--						<button onclick="playAudio()">Play Audio</button>-->
-						<button onclick="showPopup()">I'm done listening!</button>
-						<p>Take 5 minutes to do this, you can write down any ideas if you want to, and feel free to listen to the audio clip as many times as you like.</p>
+						<p>Once you've thought about these things, use your imagination to draw a person and their surroundings that you think could match the way this person speaks.</p>
+						<p>Try not to focus too much on what was said in the clip. Focus instead on the way the person is speaking.</p>
 					</div>
 				`);
                 currentPage = 2;
@@ -161,23 +161,10 @@
                 $("body").append(`
                     <img src="drawing.png" width="50%" height="50%">
 					<div id="page3">
-						<p>Once you've thought about these things, use your imagination to draw a person and their surroundings that you think could match the way this person speaks.</p>
-						<p>Try not to focus too much on what was said in the clip. Focus instead on the way the person is speaking.</p>
+						
 					</div>
 				`);
                 currentPage = 3;
-            }
-        }
-
-        // function playAudio() {
-        //     // code to play audio clip
-        //     console.log("Audio played!");
-        // }
-
-        function showPopup() {
-            var result = confirm("Are you sure you're done listening and want to continue?");
-            if (result) {
-                nextPage();
             }
         }
     </script>
@@ -194,6 +181,12 @@
         <li>What could they do as a job?</li>
     </ul>
     <p>I'd also like you to think, <em>"Do I know anyone who talks like this?"</em></p>
+	<img src="person.png" width="50%" height="50%">
+	<br>
+	 <audio controls>
+	 <source src="audio.mp3" type="audio/mpeg">
+	 Your browser does not support the audio element.
+	 </audio>
     <p>Take 5 minutes to do this, you can write down any ideas if you want to, and feel free to listen to the audio clip as many times as you like.</p>
     <button onclick="nextPage()">Next!</button>
 </div>
